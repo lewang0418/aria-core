@@ -27,6 +27,11 @@ def create_requirements(blueprint_path):
         plugins=parsed_dsl[
             futures.aria_dsl_constants.DEPLOYMENT_PLUGINS_TO_INSTALL
         ]
+    ) | _plugins_to_requirements(
+        blueprint_path=blueprint_path,
+        plugins=parsed_dsl[
+            futures.aria_dsl_constants.WORKFLOW_PLUGINS_TO_INSTALL
+        ]
     )
 
     for node in parsed_dsl['nodes']:
